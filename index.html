@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="images/image1-1.png" alt="logo just stream it" />
+      <p class="site-tagline">Vidéo à la demande</p>
+
+      <nav aria-label="navigation principale">
+        <a href="#meilleur-film">Meilleur film</a>
+        <a href="#mieux-notes">Mieux notés</a>
+        <a href="#mystery">Mystery</a>
+        <a href="#science-fiction">Science fiction</a>
+        <a href="#autres">Autres</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section id="meilleur-film" aria-labelledby="titre-meilleur-film">
+        <h2 class="titre-meilleur-film">Meilleur film</h2>
+
+        <div class="film-contenu">
+          <img id="best-image" alt="Affiche du meilleur film" />
+          <div class="film-texte"></div>
+            <h3 id="best-title"></h3>
+            <p id="best-summary"></p>
+            <button id="best-btn-details">Détails</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="mieux-notes" aria-labelledby="titre-mieux-notes">
+        <h2 id="titre-mieux-notes">Films les mieux notés</h2>
+
+        <div id="liste-mieux-notes"></div>
+
+        <button id="btn-top-voir-plus">Voir plus</button>
+      </section>
+
+      <section id="mystery" aria-labelledby="titre-mystery">
+        <h2 id="titre-mystery">Mystery</h2>
+        <div id="liste-mystery"></div>
+        <button id="btn-mystery-voir-plus">Voir plus</button>
+      </section>
+
+      <section id="science-fiction" aria-labelledby="titre-science-fiction">
+        <h2 id="titre-science-fiction">Science fiction</h2>
+        <div id="liste-science-fiction"></div>
+        <button id="btn-science-fiction-voir-plus">Voir plus</button>
+      </section>
+
+      <section id="autres" aria-labelledby="titre-autres">
+        <h2 id="titre-autres">Autres</h2>
+
+        <label for="select-genre">Catégorie :</label>
+        <select id="select-genre">
+          <option value="" disabled selected>Choisir…</option>
+        </select>
+
+        <div id="liste-autres"></div>
+        <button id="btn-autres-voir-plus" aria-expanded="false">
+          Voir plus
+        </button>
+      </section>
+
+      <template id="tpl-affiche-film">
+        <article class="affiche-film">
+          <div class="poster">
+            <img class="affiche" alt="Affiche du film" />
+            <div class="overlay">
+              <h3 class="titre-affiche">Titre</h3>
+              <button class="btn-details">Détails</button>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <dialog id="detail-film" aria-labelledby="detail-film-titre">
+        <header>
+          <h2 id="detail-film-titre">Fiche du film</h2>
+          <form method="dialog"><button>Fermer</button></form>
+        </header>
+
+        <img id="modal-image" alt="Affiche du film" />
+        <h3 id="modal-title"></h3>
+        <p id="modal-summary"></p>
+
+        <dl class="propos">
+          <dt>Genres</dt>
+          <dd id="modal-genres">—</dd>
+          <dt>Date de sortie</dt>
+          <dd id="modal-release">—</dd>
+          <dt>Classification</dt>
+          <dd id="modal-note">—</dd>
+          <dt>Score IMDB</dt>
+          <dd id="modal-imdb">—</dd>
+          <dt>Réalisateur</dt>
+          <dd id="modal-real">—</dd>
+          <dt>Acteurs</dt>
+          <dd id="modal-actors">—</dd>
+          <dt>Durée</dt>
+          <dd id="modal-duree">—</dd>
+          <dt>Pays</dt>
+          <dd id="modal-country">—</dd>
+          <dt>Box-office</dt>
+          <dd id="modal-boxoffice">—</dd>
+        </dl>
+      </dialog>
+    </main>
+  </body>
+</html>

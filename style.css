@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;}
+
+
+.hidden { display: none; }
+
+
+html, body {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.4;
+    background: #dbe3e6;
+}
+
+header {
+  max-width: 1050px;
+  margin: 16px auto 0;
+  padding: 16px;
+  border: 1px solid #cfcfcf;        
+  border-bottom: none;               
+  text-align: center;
+  background: #61787F;
+}
+
+main {
+  max-width: 360px;
+  margin: 16px auto 0;
+  padding: 16px;      
+  background: #fff;
+}
+
+
+header .logo {
+  display: block;
+  width: 160px;               
+  height: auto;
+  margin: 0 auto 12px;
+  background: #61787F;        
+  padding: 16px;
+  border-radius: 2px;
+}
+
+header nav {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+header nav a {
+    color: #ffffff;
+    opacity: .8;
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h2{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+
+.film-contenu{
+  border: 6px solid black;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+}
+
+.film-contenu img{
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+  
+  
+}
+
+.film-contenu h3{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 16px 16px 16px;
+
+}
+
+
+
+#best-summary{
+  margin: 0px 16px 16px;
+  line-height: 1.5;
+}
+
+#best-btn-details{
+  display: block;
+  margin: 20px auto;
+  border-radius: 100px;
+  background: #E50914;
+  cursor: pointer;
+  font-weight: 600;
+  height: 40px;
+  width: 91px;
+  color: #eee;
+  
+}
+
+
+
+#liste-mieux-notes,
+#liste-mystery,
+#liste-science-fiction,
+#liste-autres {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;          
+}
+
+.affiche-film .poster {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+
+.affiche-film .affiche {
+  display: block;
+  width: 100%;
+  height: 190px;                         
+  object-fit: cover;
+}
+
+
+.affiche-film .overlay {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+}
+
+
+.affiche-film .titre-affiche {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+
+.affiche-film .btn-details {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.affiche-film .btn-details:hover { filter: brightness(.95); }
+
+.propos{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  column-gap: 16px;
+  row-gap: 10px;
+  align-items: start;
+
+}
+
+.propos dt{
+  margin: 0;
+  font-weight: 700;
+  color: #111;
+
+}
+
+
+
+.props dd{
+  margin: 0;                 
+  color: #333;
+  line-height: 1.5;
+  word-break: break-word;    
+}
+
+#modal-image{
+  margin-top: 14px;
+}
+
+#btn-top-voir-plus,
+#btn-mystery-voir-plus,
+#btn-science-fiction-voir-plus,
+#btn-autres-voir-plus {
+  display: block;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 100px;
+  background: #E50914;
+  cursor: pointer;
+  font-weight: 600;
+  height: 40px;
+  width: 91px;
+  color: #eee;
+}
+
+@media (min-width: 768px) {
+  .page {
+    max-width: 760px;
+  }
+  .film-contenu {
+    display: grid;
+    grid-template-columns: 300px 1fr;   
+    gap: 16px;
+    align-items: stretch;
+    padding: 12px;
+    max-width: 100%;
+    height: auto;
+  }
+  .film-contenu #best-image {
+    display: block;
+    grid-column: 1;
+    grid-row: 1 / -1;    /* <<< clé : l'image s'étire sur toutes les lignes */
+    width: 100%;
+    height: 100%;       /* 240–260px donne un bon rendu */
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  .film-contenu #best-title { 
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0 0 8px;
+    font-size: 26px;
+  }
+  .film-contenu #best-summary {
+    grid-column: 2;
+    grid-row: 2;
+    
+  }
+
+  #best-btn-details { 
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;   
+    align-self: end;
+   }
+
+  #liste-mieux-notes,
+  #liste-mystery,
+  #liste-science-fiction,
+  #liste-autres {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .page {
+    max-width: 1040px;
+  }
+  .film-contenu {
+    display: grid;
+    grid-template-columns: 200px 1fr;   
+    gap: 18px;
+    align-items: start;
+    padding: 12px;
+    max-width: 100%;
+  }
+  .film-contenu #best-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 4px;
+    max-height: 100%;
+  }
+
+  .film-contenu #best-title { margin: 0 0 8px; font-size: 26px; height: 200px; }
+  .film-contenu #best-summary { margin: 0 0 10px; font-size: 28px; }
+
+
+  #best-btn-details { margin: 0; justify-self: end; }
+  #liste-mieux-notes,
+  #liste-mystery,
+  #liste-science-fiction,
+  #liste-autres {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+
+
+
+
