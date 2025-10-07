@@ -1,13 +1,13 @@
 
 const API = "http://127.0.0.1:8000/api/v1";
 
-
+// Section "Meilleur film"
 const bestImage   = document.getElementById("best-image");
 const bestTitle   = document.getElementById("best-title");
 const bestSummary = document.getElementById("best-summary");
 const bestBtn     = document.getElementById("best-btn-details");
 
-
+// Fenêtre modale (détails du film)
 const dialog      = document.getElementById("detail-film");
 const modalImage  = document.getElementById("modal-image");
 const modalTitle  = document.getElementById("modal-title");
@@ -22,7 +22,7 @@ const modalDuree  = document.getElementById("modal-duree");
 const modalCountry= document.getElementById("modal-country");
 const modalBox    = document.getElementById("modal-boxoffice");
 
-
+// Charger et afficher le "Meilleur film" ayant la meilleure note IMDb
 async function loadBestMovie() {
   try {
     const response = await fetch(`${API}/titles/?sort_by=-imdb_score&page_size=1`);
@@ -54,7 +54,7 @@ async function loadBestMovie() {
   }
 }
 
-
+// Ouvrir la modale de détails d’un film
 async function openDetails(id) {
   try {
     const response = await fetch(`${API}/titles/${id}`);
@@ -99,7 +99,8 @@ function addFilm(film, container) {
   const img = clone.querySelector(".affiche");
   img.src = film.image_url;
   const randomId = Math.floor(Math.random() * 900) + 1;
-  img.src = `https://picsum.photos/id/${randomId}/300/200`;
+  // problème sur l'affichage des images, donc intégration d'image random 
+  img.src = `https://picsum.photos/id/${randomId}/300/200`; 
   img.alt = `Affiche du film ${film.title}`;
 
   clone.querySelector(".titre-affiche").textContent = film.title;
@@ -111,7 +112,7 @@ if (btn) {
 
   container.appendChild(clone);
 }
-
+// Charger une liste de films par genre
 async function loadMovies(containerId, query) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -128,7 +129,7 @@ async function loadMovies(containerId, query) {
   (data.results || []).forEach(film => addFilm(film, container));
 }
 
-
+// Remplir le menu déroulant des genres
 async function setupGenreSelect() {
   const select = document.getElementById("select-genre");
   if (!select) return;
@@ -152,6 +153,7 @@ async function setupGenreSelect() {
   }
 }
 
+// Quand on change le genre → recharge la liste
 function bindGenreChange() {
   const select = document.getElementById("select-genre");
   if (!select) return;
@@ -162,6 +164,7 @@ function bindGenreChange() {
   });
 }
 
+// Charger les films de la section "Autres"
 async function loadMoviesAutre(containerId, query) {
   const c = document.getElementById(containerId);
   if (!c) return;
@@ -179,7 +182,7 @@ async function loadMoviesAutre(containerId, query) {
 
 
 
-
+// Gérer le bouton "Voir plus / Voir moins"
 function setupVoirPlus(containerId, buttonId) {
   const container = document.getElementById(containerId);
   const btn = document.getElementById(buttonId);
